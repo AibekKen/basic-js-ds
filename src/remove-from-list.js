@@ -35,8 +35,10 @@ const _removeKFromList = (curr, prev, k) => {
       return
    }
    if (prev !== null) {
-      while (curr.value === k) {
+      if (curr.value === k) {
          prev.next = curr.next;
+         _removeKFromList(prev.next, prev, k)
+         return
       }
    }
    _removeKFromList(curr.next, curr, k)
